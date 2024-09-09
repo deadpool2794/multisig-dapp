@@ -1,0 +1,47 @@
+.maincontainer {
+    height: 10vh;
+    padding-left: 72px;
+    padding-right: 72px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #0f0f0f;
+}
+
+.leftcontainer {
+    display: flex;
+    align-items: center;
+}
+
+.nameanddescriptioncontainer {
+    margin-left: 10px;
+    font-weight: 100;
+}
+
+.logoname {
+    font-weight: 100;
+    font-size: medium;
+}
+
+.logodesc {
+    font-weight: 100;
+    font-size: smaller;
+}
+
+.rightcontainer {
+    display: flex;
+    align-items: center;
+}
+
+.walletbtn {
+    border-radius: 64px;
+    height: 36px;
+    padding: 0 20px;
+    border: none;
+    border: 1px solid white;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 100;
+    background-color: #0a0a0a;
+}
