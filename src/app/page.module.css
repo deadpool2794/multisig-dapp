@@ -111,6 +111,7 @@ a.secondary {
 .apptitle {
     font-size: 56px;
     text-align: center;
+    font-weight: 100;
 }
 
 .appdescription {

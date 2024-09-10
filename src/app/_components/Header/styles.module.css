@@ -4,7 +4,7 @@
     padding-right: 72px;
     display: flex;
     justify-content: space-between;
-    background-color: #0f0f0f;
+    background-color: #1a1b1f;
 }
 
 .leftcontainer {
@@ -44,4 +44,27 @@
     line-height: 20px;
     font-weight: 100;
     background-color: #0a0a0a;
+    font-weight: 100;
+}
+
+.addressbtn {
+    border-radius: 64px;
+    height: 36px;
+    padding: 0 20px;
+    border: none;
+    border: 1px solid white;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 100;
+    background-color: #0a0a0a;
+    font-weight: 100;
+    font-size: small;
+}
+
+.chainicon {
+    background-color: #1a1b1f;
+    border: none;
+    cursor: pointer;
 }

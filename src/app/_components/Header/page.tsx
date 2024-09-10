@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import logo from "../../public/logo.jpeg";
 import styles from "./styles.module.css";
+import CustomConnectButton from "./CustomConnectButton";
 
 const Header = () => {
     const [isConnected, toggleIsConnected] = useState(false);
@@ -16,9 +17,7 @@ const Header = () => {
                 </div>
             </a>
             <div className={styles.rightcontainer}>
-                <button type="button" className={styles.walletbtn}>
-                    Connect Wallet
-                </button>
+                <CustomConnectButton />
             </div>
         </nav>
     );
