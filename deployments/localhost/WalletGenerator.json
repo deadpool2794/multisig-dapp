@@ -1,0 +1,59 @@
+{
+  "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_owners",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_requiredSinatures",
+          "type": "uint256"
+        }
+      ],
+      "name": "createNewWallet",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x7828f5932bb6549c1fbf8fe3faa1b9fa51f5588f592401b9fc478a52fb431afc",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "transactionIndex": 0,
+    "gasUsed": "209618",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xeac47ca5ac2e0c4ff0584198ad2a067d0cafa17326dadb039e6439c0b2e9c389",
+    "transactionHash": "0x7828f5932bb6549c1fbf8fe3faa1b9fa51f5588f592401b9fc478a52fb431afc",
+    "logs": [],
+    "blockNumber": 1,
+    "cumulativeGasUsed": "209618",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "e282ebce273e7dfaa12f40c2b39796bb",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.24+commit.e11b9ed9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_owners\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"_requiredSinatures\",\"type\":\"uint256\"}],\"name\":\"createNewWallet\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/WalletGenerator.sol\":\"WalletGenerator\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/MultiSigWallet.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\r\\n\\r\\npragma solidity ^0.8.24;\\r\\n\\r\\n// 0x6bfCcAFfC8e8399EC200A6E780E85c5D4FED0e56\\r\\n\\r\\ncontract MultiSigWallet {\\r\\n    mapping(address => bool) private uniqueOwners;\\r\\n    address[] public owners;\\r\\n    uint256 public signaturesRequired;\\r\\n\\r\\n    constructor(address[] memory _owners, uint256 _signaturesRequired) {\\r\\n        require(owners.length > 1, \\\"Required atleast 2 owners\\\");\\r\\n        require(\\r\\n            _signaturesRequired > 0 && _signaturesRequired <= _owners.length,\\r\\n            \\\"Invalid value for argument _signaturesRequired\\\"\\r\\n        );\\r\\n        require(noDuplicateOwners(_owners), \\\"Duplicate owners are not allowed\\\");\\r\\n        signaturesRequired = _signaturesRequired;\\r\\n        for (uint256 i = 0; i < _owners.length; ++i) {\\r\\n            owners.push(_owners[i]);\\r\\n        }\\r\\n    }\\r\\n\\r\\n    function noDuplicateOwners(\\r\\n        address[] memory _owners\\r\\n    ) internal view returns (bool) {\\r\\n        for (uint256 i = 0; i < _owners.length; ++i) {\\r\\n            if (uniqueOwners[_owners[i]]) return false;\\r\\n        }\\r\\n        return true;\\r\\n    }\\r\\n}\\r\\n\",\"keccak256\":\"0xfe791607e3f13829ea7276600ff9ea7ead593e57e9b88404f1eb189bb27c508f\",\"license\":\"MIT\"},\"contracts/WalletGenerator.sol\":{\"content\":\"//SPDX-License-Identifier: MIT\\r\\n\\r\\npragma solidity ^0.8.24;\\r\\n\\r\\nimport \\\"./MultiSigWallet.sol\\\";\\r\\n\\r\\ncontract WalletGenerator {\\r\\n    // uint256 public num;\\r\\n\\r\\n    // function setNum(uint256 _num) public {\\r\\n    //     num = _num;\\r\\n    // }\\r\\n\\r\\n    // function getNum() public view returns (uint256) {\\r\\n    //     return num;\\r\\n    // }\\r\\n\\r\\n    function createNewWallet(\\r\\n        address[] memory _owners,\\r\\n        uint256 _requiredSinatures\\r\\n    ) public payable {}\\r\\n}\\r\\n\",\"keccak256\":\"0x30b5320a6bc0f5e46f6a36d3a9e4f0fd19b97f24f653782ba52d3cd20a3380fd\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506102d6806100206000396000f3fe60806040526004361061001e5760003560e01c8063cebac5e314610023575b600080fd5b61003d60048036038101906100389190610244565b61003f565b005b5050565b6000604051905090565b600080fd5b600080fd5b600080fd5b6000601f19601f8301169050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6100a58261005c565b810181811067ffffffffffffffff821117156100c4576100c361006d565b5b80604052505050565b60006100d7610043565b90506100e3828261009c565b919050565b600067ffffffffffffffff8211156101035761010261006d565b5b602082029050602081019050919050565b600080fd5b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600061014482610119565b9050919050565b61015481610139565b811461015f57600080fd5b50565b6000813590506101718161014b565b92915050565b600061018a610185846100e8565b6100cd565b905080838252602082019050602084028301858111156101ad576101ac610114565b5b835b818110156101d657806101c28882610162565b8452602084019350506020810190506101af565b5050509392505050565b600082601f8301126101f5576101f4610057565b5b8135610205848260208601610177565b91505092915050565b6000819050919050565b6102218161020e565b811461022c57600080fd5b50565b60008135905061023e81610218565b92915050565b6000806040838503121561025b5761025a61004d565b5b600083013567ffffffffffffffff81111561027957610278610052565b5b610285858286016101e0565b92505060206102968582860161022f565b915050925092905056fea2646970667358221220a4a91d805c6098869e80e129d4c0a1c918f5c135db22eb388666e47d0be7f12e64736f6c63430008180033",
+  "deployedBytecode": "0x60806040526004361061001e5760003560e01c8063cebac5e314610023575b600080fd5b61003d60048036038101906100389190610244565b61003f565b005b5050565b6000604051905090565b600080fd5b600080fd5b600080fd5b6000601f19601f8301169050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b6100a58261005c565b810181811067ffffffffffffffff821117156100c4576100c361006d565b5b80604052505050565b60006100d7610043565b90506100e3828261009c565b919050565b600067ffffffffffffffff8211156101035761010261006d565b5b602082029050602081019050919050565b600080fd5b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600061014482610119565b9050919050565b61015481610139565b811461015f57600080fd5b50565b6000813590506101718161014b565b92915050565b600061018a610185846100e8565b6100cd565b905080838252602082019050602084028301858111156101ad576101ac610114565b5b835b818110156101d657806101c28882610162565b8452602084019350506020810190506101af565b5050509392505050565b600082601f8301126101f5576101f4610057565b5b8135610205848260208601610177565b91505092915050565b6000819050919050565b6102218161020e565b811461022c57600080fd5b50565b60008135905061023e81610218565b92915050565b6000806040838503121561025b5761025a61004d565b5b600083013567ffffffffffffffff81111561027957610278610052565b5b610285858286016101e0565b92505060206102968582860161022f565b915050925092905056fea2646970667358221220a4a91d805c6098869e80e129d4c0a1c918f5c135db22eb388666e47d0be7f12e64736f6c63430008180033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  }
+}

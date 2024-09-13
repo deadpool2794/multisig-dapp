@@ -1,31 +1,36 @@
 {
-  "name": "multisig-dapp",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@rainbow-me/rainbowkit": "^2.1.5",
-    "@tanstack/react-query": "^5.55.4",
-    "next": "14.2.8",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-icons": "^5.3.0",
-    "viem": "^2.21.4",
-    "wagmi": "^2.12.9"
-  },
-  "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.8",
-    "hardhat": "^2.22.10",
-    "typescript": "^5"
-  }
+    "name": "multisig-dapp",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "deploy": "hardhat ignition deploy ./ignition/modules/*.js"
+    },
+    "dependencies": {
+        "@rainbow-me/rainbowkit": "^2.1.5",
+        "@tanstack/react-query": "^5.55.4",
+        "next": "14.2.8",
+        "react": "^18",
+        "react-dom": "^18",
+        "react-icons": "^5.3.0",
+        "viem": "^2.21.4",
+        "wagmi": "^2.12.9"
+    },
+    "devDependencies": {
+        "@nomicfoundation/hardhat-ethers": "^3.0.8",
+        "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "dotenv": "^16.4.5",
+        "eslint": "^8",
+        "eslint-config-next": "14.2.8",
+        "hardhat": "^2.22.10",
+        "hardhat-deploy": "^0.12.4",
+        "hardhat-deploy-ethers": "^0.4.2",
+        "typescript": "^5"
+    }
 }

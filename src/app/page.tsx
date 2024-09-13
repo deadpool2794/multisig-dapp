@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import Footer from "./_components/Footer/page";
+import { Metadata } from "next";
 
 export default function Home() {
     return (
