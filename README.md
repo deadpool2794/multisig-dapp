@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Guard Wallet
+
+Guard Wallet is a decentralized multi-signature wallet dApp that provides enhanced security by requiring multiple signers to approve transactions before they are executed. Built using Next.js for the front-end and Hardhat for smart contract development, this project allows users to create multi-signer wallets, manage signers, and execute secure transactions on the Ethereum blockchain.
+
+## Prerequisites
+
+Before running the project locally, ensure that you have the following installed:
+
+-   [Node.js](https://nodejs.org/) (for managing dependencies and running the project)
+-   npm (which comes with Node.js)
+-   MetaMask or any Ethereum-compatible wallet to interact with the dApp
 
 ## Getting Started
 
-First, run the development server:
+To set up and run Guard Wallet on your local system, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### 1. Clone the Repository
+
+```
+git clone <repository-url>
+cd guard-wallet
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Once inside the project directory, install the necessary dependencies by running:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+npm install
+```
 
-## Learn More
+### 3. Running the Application Locally
 
-To learn more about Next.js, take a look at the following resources:
+Guard Wallet requires two separate terminals to run the project locally:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Terminal 1: Spin Up a Local Hardhat Node
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+In the first terminal, run the following command to start a new local Ethereum blockchain node and automatically deploy the smart contracts:
 
-## Deploy on Vercel
+```
+npx hardhat node
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This command will start a Hardhat local blockchain and deploy your smart contracts to it. You’ll see the accounts and contract addresses displayed in the terminal once it's running.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Terminal 2: Start Next.js Server
+
+In the second terminal, start the Next.js development server by running:
+
+```
+npm run dev
+```
+
+### Technologies Used
+
+-   Node.js - For managing dependencies and project runtime.
+-   Next.js - Frontend framework used to build the interface.
+-   Hardhat - Ethereum development environment for smart contract deployment and testing.
+-   WAGMI - Used for connecting Ethereum wallets to the dApp.
+-   RainbowKit - Provides a user-friendly interface for wallet connections.
+-   CSS - For styling the front-end components.
+-   MetaMask - Ethereum wallet used for interacting with the dApp.
