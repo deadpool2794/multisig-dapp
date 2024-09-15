@@ -1,0 +1,75 @@
+.maincontainer {
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: 50vw;
+}
+
+.heading {
+    font-family: inherit;
+    font-weight: 100;
+}
+
+.signerinput {
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border: 1px solid white;
+    width: 20vw;
+    border-radius: 8px;
+    align-self: center;
+    margin-right: 16px;
+}
+
+.addsigner {
+    background-color: inherit;
+    border: none;
+    padding: 8px;
+    width: 120px;
+    align-self: end;
+    cursor: pointer;
+}
+
+.inputandcross {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.removesignerbutton {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.walletcreatebutton {
+    width: 180px;
+    border-radius: 64px;
+    height: 36px;
+    padding: 20px;
+    border: 1px solid white;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 100;
+    background-color: var(--background);
+    font-family: inherit;
+    align-self: center;
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.errormsg {
+    font-size: small;
+    align-self: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.inputlabel {
+    font-family: inherit;
+    font-weight: 100;
+    margin-right: 10px;
+}

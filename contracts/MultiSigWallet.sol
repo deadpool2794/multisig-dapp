@@ -9,13 +9,19 @@ contract MultiSigWallet {
     address[] public owners;
     uint256 public signaturesRequired;
 
-    constructor(address[] memory _owners, uint256 _signaturesRequired) {
-        require(owners.length > 1, "Required atleast 2 owners");
+    function init(
+        address[] memory _owners,
+        uint256 _signaturesRequired
+    ) public {
+        require(_owners.length > 1, "Required atleast 2 owners");
         require(
             _signaturesRequired > 0 && _signaturesRequired <= _owners.length,
             "Invalid value for argument _signaturesRequired"
         );
-        require(noDuplicateOwners(_owners), "Duplicate owners are not allowed");
+        require(
+            noDuplicateOwners(_owners) == true,
+            "Duplicate owners are not allowed"
+        );
         signaturesRequired = _signaturesRequired;
         for (uint256 i = 0; i < _owners.length; ++i) {
             owners.push(_owners[i]);

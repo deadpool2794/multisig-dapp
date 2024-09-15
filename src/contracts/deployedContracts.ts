@@ -8,21 +8,109 @@ const deployedContracts = {
       address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
       abi: [
         {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address[]",
+              name: "owners",
+              type: "address[]",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "signaturesRequired",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "walletAddress",
+              type: "address",
+            },
+          ],
+          name: "WalletCreated",
+          type: "event",
+        },
+        {
           inputs: [
             {
               internalType: "address[]",
-              name: "_owners",
+              name: "owners",
               type: "address[]",
             },
             {
               internalType: "uint256",
-              name: "_requiredSinatures",
+              name: "signaturesRequired",
               type: "uint256",
             },
           ],
           name: "createNewWallet",
-          outputs: [],
-          stateMutability: "payable",
+          outputs: [
+            {
+              internalType: "contract MultiSigWallet",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
+  11155111: {
+    WalletGenerator: {
+      address: "0x0ab1D39Fa64d117EcDfd969F253B3f200662FACe",
+      abi: [
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address[]",
+              name: "owners",
+              type: "address[]",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "signaturesRequired",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "walletAddress",
+              type: "address",
+            },
+          ],
+          name: "WalletCreated",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address[]",
+              name: "owners",
+              type: "address[]",
+            },
+            {
+              internalType: "uint256",
+              name: "signaturesRequired",
+              type: "uint256",
+            },
+          ],
+          name: "createNewWallet",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "nonpayable",
           type: "function",
         },
       ],
