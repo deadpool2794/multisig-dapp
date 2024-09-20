@@ -5,6 +5,7 @@ pragma solidity ^0.8.24;
 // 0x6bfCcAFfC8e8399EC200A6E780E85c5D4FED0e56
 
 contract MultiSigWallet {
+    event Deposit(address indexed sender, uint256 amount, uint256 balance);
     mapping(address => bool) private uniqueOwners;
     address[] public owners;
     uint256 public signaturesRequired;
@@ -35,5 +36,9 @@ contract MultiSigWallet {
             if (uniqueOwners[_owners[i]]) return false;
         }
         return true;
+    }
+
+    receive() external payable {
+        emit Deposit(msg.sender, msg.value, address(this).balance);
     }
 }

@@ -66,24 +66,25 @@ const CreateWallet = () => {
         }
         setErrorMsg("");
 
-        console.log(chainId);
         const contractDetails = deployedContracts[chainId as keyof typeof deployedContracts][walletGenerator];
 
         const contractAddress = contractDetails.address;
         const contractABI = contractDetails.abi;
+        console.log(contractAddress);
+        console.log(chainId);
 
-        wagmiContractWrite.writeContractAsync({
+        const transaction = await wagmiContractWrite.writeContractAsync({
             abi: contractABI,
             address: contractAddress,
             functionName: "createNewWallet",
             args: [validAddresses, BigInt(signaturesRequired)],
             account: address,
         });
+        console.log(transaction);
     };
 
     return (
         <form className={styles.maincontainer} onSubmit={createWallet}>
-            <h2 className={styles.heading}>Create Multi-Signer Wallet</h2>
             {signers.map((signer, index) => (
                 <div className={styles.inputandcross} key={index}>
                     <label className={styles.inputlabel}>{`Signer ${index + 1}`}</label>

@@ -15,13 +15,13 @@ const menuLinks: MenuLink[] = [
     },
     {
         id: 2,
-        tabName: "Wallets",
-        href: "/wallets",
+        tabName: "Transactions",
+        href: "/transactions",
     },
     {
         id: 3,
-        tabName: "Transactions",
-        href: "/transactions",
+        tabName: "Events",
+        href: "/events",
     },
 ];
 

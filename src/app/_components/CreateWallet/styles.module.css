@@ -1,12 +1,12 @@
 .maincontainer {
     display: flex;
     flex-direction: column;
-    height: 50vh;
-    width: 50vw;
+    height: 40vh;
+    width: 30vw;
 }
 
 .heading {
-    font-family: inherit;
+    font-family: var(--font-geist-sans);
     font-weight: 100;
 }
 
@@ -28,6 +28,10 @@
     width: 120px;
     align-self: end;
     cursor: pointer;
+    background-color: var(--background);
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 1px;
 }
 
 .inputandcross {
@@ -53,7 +57,7 @@
     line-height: 20px;
     font-weight: 100;
     background-color: var(--background);
-    font-family: inherit;
+    font-family: var(--font-geist-sans);
     align-self: center;
     margin-top: 36px;
     display: flex;
@@ -69,7 +73,7 @@
 }
 
 .inputlabel {
-    font-family: inherit;
+    font-family: var(--font-geist-sans);
     font-weight: 100;
     margin-right: 10px;
 }

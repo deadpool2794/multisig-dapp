@@ -6,7 +6,7 @@ import { WagmiProvider, http } from "wagmi";
 import { sepolia, hardhat } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
-const config = getDefaultConfig({
+export const config = getDefaultConfig({
     appName: "Gaurd Wallet",
     projectId: "ASDFGH",
     chains: [hardhat, sepolia],

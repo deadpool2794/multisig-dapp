@@ -11,7 +11,7 @@
     font-weight: 100;
     background-color: var(--background);
     font-weight: 100;
-    font-family: inherit;
+    font-family: var(--font-geist-sans);
 }
 
 .chainicon {
@@ -21,7 +21,7 @@
 }
 
 .addressbtn {
-    font-family: inherit;
+    font-family: var(--font-geist-sans);
     border-radius: 64px;
     height: 36px;
     padding: 0 20px;
