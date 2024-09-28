@@ -3,6 +3,57 @@
  */
 
 const deployedContracts = {
+  1337: {
+    WalletGenerator: {
+      address: "0x9D2eC20C1EE57Cf5F96e50383beDfa43Ee753375",
+      abi: [
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: false,
+              internalType: "address[]",
+              name: "owners",
+              type: "address[]",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "signaturesRequired",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "address",
+              name: "walletAddress",
+              type: "address",
+            },
+          ],
+          name: "WalletCreated",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address[]",
+              name: "owners",
+              type: "address[]",
+            },
+            {
+              internalType: "uint256",
+              name: "signaturesRequired",
+              type: "uint256",
+            },
+          ],
+          name: "createNewWallet",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
   31337: {
     WalletGenerator: {
       address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",

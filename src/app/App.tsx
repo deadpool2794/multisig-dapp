@@ -5,14 +5,16 @@ import { getDefaultConfig, RainbowKitProvider, darkTheme } from "@rainbow-me/rai
 import { WagmiProvider, http } from "wagmi";
 import { sepolia, hardhat } from "wagmi/chains";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { ganache } from "./ganacheChain";
 
 export const config = getDefaultConfig({
     appName: "Gaurd Wallet",
     projectId: "ASDFGH",
-    chains: [hardhat, sepolia],
+    chains: [ganache, sepolia, hardhat],
     transports: {
-        [hardhat.id]: http("http://127.0.0.1:8545/"),
+        [ganache.id]: http(),
         [sepolia.id]: http(),
+        [hardhat.id]: http("http://127.0.0.1:8545/"),
     },
     ssr: true, // If your dApp uses server side rendering (SSR)
 });
