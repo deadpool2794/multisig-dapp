@@ -1,0 +1,39 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/MultiSigWallet.sol": {
+      "content": "//SPDX-License-Identifier: MIT\r\n\r\npragma solidity 0.8.24;\r\n\r\n// [\"0x5B38Da6a701c568545dCfcB03FcB875f56beddC4\", \"0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2\", \"0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2\"]\r\n\r\nerror NeedAtleastTwoOwners();\r\nerror InvalidValueForRequiredSignatures();\r\nerror NoDuplicateOwners();\r\nerror NotOwner(address);\r\n\r\ncontract MultiSigWallet {\r\n    event Deposit(address indexed sender, uint256 amount, uint256 balance);\r\n    mapping(address => bool) private uniqueOwners;\r\n    address[] public owners;\r\n    uint256 public immutable signaturesRequired;\r\n\r\n    constructor(address[] memory _owners, uint256 _signaturesRequired) {\r\n        if (_owners.length <= 1) revert NeedAtleastTwoOwners();\r\n\r\n        if (!(_signaturesRequired > 0 && _signaturesRequired <= _owners.length))\r\n            revert InvalidValueForRequiredSignatures();\r\n\r\n        if (!noDuplicateOwners(_owners)) revert NoDuplicateOwners();\r\n\r\n        signaturesRequired = _signaturesRequired;\r\n        for (uint256 i = 0; i < _owners.length; ++i) {\r\n            owners.push(_owners[i]);\r\n        }\r\n    }\r\n\r\n    function noDuplicateOwners(\r\n        address[] memory _owners\r\n    ) private returns (bool) {\r\n        for (uint256 i = 0; i < _owners.length; ++i) {\r\n            if (uniqueOwners[_owners[i]]) return false;\r\n            uniqueOwners[_owners[i]] = true;\r\n        }\r\n        return true;\r\n    }\r\n\r\n    function deposit() external payable {\r\n        emit Deposit(msg.sender, msg.value, address(this).balance);\r\n    }\r\n\r\n    receive() external payable {\r\n        emit Deposit(msg.sender, msg.value, address(this).balance);\r\n    }\r\n}\r\n"
+    },
+    "contracts/WalletGenerator.sol": {
+      "content": "//SPDX-License-Identifier: MIT\r\n\r\npragma solidity 0.8.24;\r\n\r\nimport \"./MultiSigWallet.sol\";\r\n\r\ncontract WalletGenerator {\r\n    event WalletCreated(\r\n        address[] owners,\r\n        uint256 signaturesRequired,\r\n        address indexed walletAddress\r\n    );\r\n\r\n    address immutable owner;\r\n    MultiSigWallet multiSigWallet;\r\n\r\n    modifier onlyOwner() {\r\n        if (msg.sender != owner) revert NotOwner(msg.sender);\r\n        _;\r\n    }\r\n\r\n    constructor() {\r\n        owner = msg.sender;\r\n    }\r\n\r\n    function createNewWallet(\r\n        address[] calldata owners,\r\n        uint256 signaturesRequired\r\n    ) external {\r\n        multiSigWallet = new MultiSigWallet(owners, signaturesRequired);\r\n\r\n        emit WalletCreated(owners, signaturesRequired, address(multiSigWallet));\r\n    }\r\n\r\n    function withdraw() external onlyOwner {\r\n        (bool sent, ) = payable(msg.sender).call{value: address(this).balance}(\r\n            \"\"\r\n        );\r\n        if (!sent) revert(\"withdraw failed\");\r\n    }\r\n\r\n    receive() external payable {}\r\n}\r\n"
+    }
+  },
+  "settings": {
+    "evmVersion": "paris",
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

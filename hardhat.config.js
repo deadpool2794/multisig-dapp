@@ -22,7 +22,7 @@ const config = {
         },
         ganache: {
             url: "HTTP://127.0.0.1:7545",
-            accounts: ["0xd96a9b7e81578fcad34a7667c8aa8aafdb6a9437223abd8b9c9262d01c3539be"],
+            accounts: ["0x52e24d009169db2f09283dd4143d0266229bf4efd677623c13f8284106597b58"],
             chainId: 1337,
         },
     },

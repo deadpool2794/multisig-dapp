@@ -9,6 +9,7 @@ Before running the project locally, ensure that you have the following installed
 -   [Node.js](https://nodejs.org/) (for managing dependencies and running the project)
 -   npm (which comes with Node.js)
 -   MetaMask or any Ethereum-compatible wallet to interact with the dApp
+-   Ganache
 
 ## Getting Started
 
@@ -17,7 +18,7 @@ To set up and run Guard Wallet on your local system, follow these steps:
 ### 1. Clone the Repository
 
 ```
-git clone <repository-url>
+git clone https://github.com/deadpool2794/multisig-dapp.git
 cd guard-wallet
 ```
 
@@ -33,15 +34,14 @@ npm install
 
 Guard Wallet requires two separate terminals to run the project locally:
 
-#### Terminal 1: Spin Up a Local Hardhat Node
+#### Terminal 1: Spin Up a Local Ganache Node
 
-In the first terminal, run the following command to start a new local Ethereum blockchain node and automatically deploy the smart contracts:
+Start a new Ganache blockchain node. In the first terminal, run the following command to deploy the smart contracts:
+To configure Ganache settings, open `hardhat.config.ts` add one of the accounts displayed on Ganache to networks.
 
 ```
-npx hardhat node
+npx hardhat deploy
 ```
-
-This command will start a Hardhat local blockchain and deploy your smart contracts to it. You’ll see the accounts and contract addresses displayed in the terminal once it's running.
 
 #### Terminal 2: Start Next.js Server
 
@@ -55,7 +55,7 @@ npm run dev
 
 -   Node.js - For managing dependencies and project runtime.
 -   Next.js - Frontend framework used to build the interface.
--   Hardhat - Ethereum development environment for smart contract deployment and testing.
+-   Ganache - Ethereum development environment for smart contract deployment and testing.
 -   WAGMI - Used for connecting Ethereum wallets to the dApp.
 -   RainbowKit - Provides a user-friendly interface for wallet connections.
 -   CSS - For styling the front-end components.
