@@ -34,7 +34,7 @@ npm install
 
 Guard Wallet requires two separate terminals to run the project locally:
 
-#### Terminal 1: Spin Up a Local Ganache Node
+#### Terminal 1: Deploy Smart Contracts
 
 Start a new Ganache blockchain node. In the first terminal, run the following command to deploy the smart contracts:
 To configure Ganache settings, open `hardhat.config.ts` add one of the accounts displayed on Ganache to networks.

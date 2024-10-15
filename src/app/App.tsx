@@ -12,7 +12,7 @@ export const config = getDefaultConfig({
     projectId: "ASDFGH",
     chains: [ganache, sepolia, hardhat],
     transports: {
-        [ganache.id]: http(),
+        [ganache.id]: http("HTTP://127.0.0.1:7545"),
         [sepolia.id]: http(),
         [hardhat.id]: http("http://127.0.0.1:8545/"),
     },
